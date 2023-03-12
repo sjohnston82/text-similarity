@@ -37,7 +37,7 @@ const handler = async (
     const createdApiKey = await db.apiKey.create({
       data: {
         userId: user.id,
-        key: nanoid(),
+        key: nanoid(32),
       },
     });
 
