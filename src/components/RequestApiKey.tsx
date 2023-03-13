@@ -9,12 +9,15 @@ import { Input } from "./ui/Input";
 import LargeHeading from "./ui/LargeHeading";
 import Paragraph from "./ui/Paragraph";
 import { toast } from "./ui/Toast";
+import { useRouter } from "next/navigation";
 
 interface RequestApiKeyProps {}
 
 const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
   const [isCreating, setIsCreating] = useState<boolean>(false);
   const [apiKey, setApiKey] = useState<string | null>(null);
+
+  const router = useRouter();
 
   async function createNewApiKey(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -81,6 +84,11 @@ const RequestApiKey: FC<RequestApiKeyProps> = ({}) => {
           </Button>
         </div>
       </form>
+        <div className="mt-6 flex flex-col items-center justify-center">
+          {apiKey && (
+            <Button onClick={() => router.refresh()}>Go to Dashboard</Button>
+          )}
+        </div>
     </div>
   );
 };
