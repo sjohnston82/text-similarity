@@ -20,6 +20,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const { text1, text2 } = reqSchema.parse(body);
+    console.log(text1, text2);
 
     const validApiKey = await db.apiKey.findFirst({
       where: {
