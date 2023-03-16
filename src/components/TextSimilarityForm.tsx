@@ -29,7 +29,7 @@ const TextSimilarityForm = (activeApiKey: ApiKey | undefined) => {
       const res = await fetch("http://localhost:3000/api/v1/similarity", {
         method: "POST",
         body: JSON.stringify({ textObj }),
-        // @ts-ignore
+       
         headers: {
           Authorization: activeApiKey?.key,
         },
